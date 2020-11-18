@@ -1,40 +1,51 @@
-﻿namespace ContactsAppUI
+﻿
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ContactsApp;
+using ContactsApps;
+
+namespace ContactsAppUI
 {
-	partial class MainForm
+
+	public partial class Main_Form : Form
 	{
-		/// <summary>
-		/// Обязательная переменная конструктора.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		public Project project;
 
-		/// <summary>
-		/// Освободить все используемые ресурсы.
-		/// </summary>
-		/// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-		protected override void Dispose(bool disposing)
+
+		public Main_Form()
 		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
+
 		}
 
-		#region Код, автоматически созданный конструктором форм Windows
-
-		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
-		private void InitializeComponent()
+		private void ClassLoad(object sender, EventArgs e)
 		{
-			this.components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "Form1";
-		}
+			//InitializeComponent();
 
-		#endregion
+			project = new Project();
+
+			Phone phone = new Phone();
+			//phone.Number = +79998887766;
+
+			Contact contact = new Contact();
+			contact.Name = "petya";
+			contact.Lastname = "pEtRoVS";
+			contact.Number = phone;
+			contact.VKid = "12456";
+			contact.Birthdate = new DateTime(2000, 12, 3);
+			contact.Email = "mail@mail.ru";
+
+			//textBox1.Text = contact.Lastname;
+			//textBox2.Text = contact.Name;
+
+			project._contactlist.Add(contact);
+
+		}
 	}
 }
-
